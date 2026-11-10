@@ -1,0 +1,18 @@
+{
+  "name": "praman-farmer-mobile",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "jest",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "react": "18.3.1",
+    "react-native": "0.76.2"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.31",
+    "@types/react-native": "^0.72.8",
+    "typescript": "^5.9.3"
+  }
+}

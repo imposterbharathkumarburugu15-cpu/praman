@@ -1,0 +1,3 @@
+rootProject.name = 'praman-farmer'
+include ':app'
+

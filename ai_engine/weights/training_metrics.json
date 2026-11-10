@@ -1,0 +1,130 @@
+{
+  "model_name": "crop_mobilenet_v3",
+  "architecture": "MobileNetV3-Small",
+  "framework": "PyTorch 2.10.0+cpu",
+  "weights_path": "ai_engine/weights\\crop_mobilenet_v3.pth",
+  "weights_sha256": "f223b373e85220c6eb35ca0e1c2a00e11d85f0cb0eab7d0904cba6bb8747dd3d",
+  "weights_size_bytes": 6212059,
+  "classes": [
+    "CROP_GROWTH",
+    "HARVEST",
+    "SOWING",
+    "STORAGE"
+  ],
+  "dataset_split": {
+    "train_samples": 168,
+    "val_samples": 36,
+    "test_samples": 36,
+    "total_samples": 240
+  },
+  "training_config": {
+    "epochs": 6,
+    "batch_size": 16,
+    "optimizer": "AdamW",
+    "learning_rate": 0.0005,
+    "random_seed": 42,
+    "training_time_seconds": 57.09
+  },
+  "history": [
+    {
+      "epoch": 1,
+      "train_loss": 0.5592,
+      "train_acc": 0.8214,
+      "val_loss": 0.3248,
+      "val_acc": 1.0
+    },
+    {
+      "epoch": 2,
+      "train_loss": 0.0173,
+      "train_acc": 1.0,
+      "val_loss": 0.0528,
+      "val_acc": 1.0
+    },
+    {
+      "epoch": 3,
+      "train_loss": 0.0257,
+      "train_acc": 0.9881,
+      "val_loss": 0.014,
+      "val_acc": 1.0
+    },
+    {
+      "epoch": 4,
+      "train_loss": 0.0108,
+      "train_acc": 1.0,
+      "val_loss": 0.0029,
+      "val_acc": 1.0
+    },
+    {
+      "epoch": 5,
+      "train_loss": 0.0853,
+      "train_acc": 0.9762,
+      "val_loss": 0.002,
+      "val_acc": 1.0
+    },
+    {
+      "epoch": 6,
+      "train_loss": 0.0111,
+      "train_acc": 0.994,
+      "val_loss": 0.0048,
+      "val_acc": 1.0
+    }
+  ],
+  "evaluation_metrics": {
+    "accuracy": 1.0,
+    "macro_precision": 1.0,
+    "macro_recall": 1.0,
+    "macro_f1": 1.0,
+    "per_class": {
+      "CROP_GROWTH": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "support": 9
+      },
+      "HARVEST": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "support": 9
+      },
+      "SOWING": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "support": 9
+      },
+      "STORAGE": {
+        "precision": 1.0,
+        "recall": 1.0,
+        "f1_score": 1.0,
+        "support": 9
+      }
+    },
+    "confusion_matrix": [
+      [
+        9,
+        0,
+        0,
+        0
+      ],
+      [
+        0,
+        9,
+        0,
+        0
+      ],
+      [
+        0,
+        0,
+        9,
+        0
+      ],
+      [
+        0,
+        0,
+        0,
+        9
+      ]
+    ]
+  }
+}

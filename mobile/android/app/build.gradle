@@ -1,0 +1,66 @@
+apply plugin: 'com.android.application'
+
+android {
+    namespace 'org.praman.farmer'
+    compileSdk 34
+
+    defaultConfig {
+        applicationId "org.praman.farmer"
+        minSdk 24
+        targetSdk 34
+        versionCode 1
+        versionName "1.0.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            applicationIdSuffix ""
+            debuggable true
+        }
+    }
+
+    packaging {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+            excludes += 'META-INF/INDEX.LIST'
+        }
+    }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
+}
+
+dependencies {
+    implementation 'androidx.appcompat:appcompat:1.7.0'
+    implementation 'com.google.android.material:material:1.12.0'
+    implementation 'androidx.coordinatorlayout:coordinatorlayout:1.2.0'
+    implementation 'androidx.webkit:webkit:1.12.1'
+
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.json:json:20231013'
+}
+
+afterEvaluate {
+    tasks.register('copyApkToDist', Copy) {
+        from layout.buildDirectory.dir("outputs/apk/debug")
+        into file("${rootDir}/../dist")
+        include "app-debug.apk"
+        rename "app-debug.apk", "praman-farmer-debug.apk"
+    }
+    tasks.named('assembleDebug').configure {
+        finalizedBy 'copyApkToDist'
+    }
+}
+
